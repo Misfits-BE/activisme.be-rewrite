@@ -10,66 +10,164 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+    {{-- Social media SEO --}}
+    @yield('twitter-card')
+    @yield('openGraph')
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">   
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<body class="content">
+<div id="app">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url('/') }}">
+                {{ config('app.name', 'Laravel') }}
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="nav navbar-nav mr-auto">
+                </ul>
 
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                <ul class="navbar-nav">
+                    @if (auth()->guest())
+                        <li class="nav-item">
+                            <a href="{{ route('login') }}" class="nav-link @if (Request::is('login*')) active @endif">
+                                <i class="fa fa-sign-in"></i> Login
+                            </a>
+                        </li>
+                        {{-- <li class="nav-item"> --}}
+                            {{-- <a href="{{ route('register') }}" class="nav-link @if (Request::is('register*')) active @endif"> --}}
+                                {{-- <i class="fa fa-user-plus"></i> Registreer --}}
+                            {{-- </a> --}}
+                        {{-- </li> --}}
+                    @else
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user"></i> {{ auth()->user()->name }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                <a href="{{ route('account.settings', ['type' => 'informatie']) }}" class="dropdown-item">
+                                    <i class="fa fa-fw fa-cogs"></i> Instellingen
+                                </a>
+                                <a href="{{ route('bug.index') }}" class="dropdown-item">
+                                    <i class="fa fa-fw fa-bug"></i> Meld een probleem
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                    <i class="text-danger fa fa-fw fa-power-off"></i> Afmelden
                                 </a>
 
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </div>
+                        </li>
+                    @endif
+                </ul>
+            </div>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
+        </div>
+    </nav>
+
+    @yield('content')
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <h5>{{ config('app.name') }}</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li><a href="https://www.vrede.be/">Vrede VZW</a></li>
+                                <li><a href="https://nonukes.be/">Belgische coalitie kernwapens</a></li>
+                                <li><a href="http://www.solidarityforall.be/">Solidarity for all</a></li>
+                                <li><a href="http://www.icanw.org/">ICAN</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li><a href="{{ url('/') }}">Home</a></li>
+                                <li><a href="">Onze Visie</a></li>
+                                <li><a href="">Ondersteun ons</a></li>
+                                <li><a href="{{ route('policy.disclaimer') }}">Disclaimer</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a href="https://www.flickr.com/photos/activisme/" class="social-facebook nav-link pl-0">
+                                <i class="fa fa-facebook fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://twitter.com/Activisme_be" class="social-twitter nav-link">
+                                <i class="fa fa-twitter fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://www.flickr.com/photos/activisme/" class="social-flickr nav-link">
+                                <i class="fa fa-flickr fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://github.com/CPSB" class="social-github nav-link">
+                                <i class="fa fa-github fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="mailto:tom@activisme.be" class="social-contact-footer nav-link">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </li>
                     </ul>
+                    <br>
+                    <br>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="text-md-right">Contacteer ons</h5>
+                    <hr>
+                </div>
+                <div class="col-md-5">
+                    <form method="POST" action="">
+                        {{ csrf_field() }} {{-- CSRF form field protection --}}
+
+                        <fieldset class="form-group">
+                            <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Uw email adres" required>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <textarea class="form-control" id="exampleMessage" name="bericht" placeholder="Uw bericht" required></textarea>
+                        </fieldset>
+                        <fieldset class="form-group text-xs-right">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa fa-send"></i> Verstuur
+                            </button>
+                        </fieldset>
+                    </form>
                 </div>
             </div>
-        </nav>
+        </div>
+    </footer>
+</div>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        setTimeout(function() {
+            $('div.alert').not('.alert-important').alert('close');
+        }, 4000);
+    });
+</script>
+@stack('scripts')
 </body>
 </html>

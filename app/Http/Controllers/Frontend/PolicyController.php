@@ -20,7 +20,7 @@ class PolicyController extends Controller
 	 *
 	 * @return View
 	 */
-    public function index(): View
+    public function disclaimer(): View
     {
         return view('frontend.policies.disclaimer');
     }
