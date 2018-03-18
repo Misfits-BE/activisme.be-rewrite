@@ -39,7 +39,7 @@
                 <ul class="navbar-nav">
                     @if (auth()->guest())
                         <li class="nav-item">
-                            <a href="{{ route('login') }}" class="nav-link @if (Request::is('login*')) active @endif">
+                            <a href="{{ route('login') }}" target="_blank" class="nav-link">
                                 <i class="fa fa-sign-in"></i> Login
                             </a>
                         </li>
