@@ -16,7 +16,7 @@ Auth::routes();
 
 // Home routes 
 Route::get('/', 'Frontend\IndexController@index')->name('frontend.home');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'Backend\IndexController@index')->name('home');
 
 // Policy Routes
 Route::get('/disclaimer', 'Frontend\PolicyController@disclaimer')->name('policy.disclaimer');

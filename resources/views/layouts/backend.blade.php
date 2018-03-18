@@ -79,8 +79,12 @@
                         <li class="header">MENU</li>
         
                         {{-- Optionally, you can add icons to the links --}}
-                        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-                        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+                        <li class="active">
+                            <a href="#">
+                                <i class="fa fa-link"></i> <span>Link</span>
+                            </a>
+                        </li>
+                        
                     </ul> {{-- /.sidebar-menu --}}
                 </section> {{-- /.sidebar --}}
             </aside>

@@ -1,15 +1,21 @@
 <?php
 
-namespace Tests\Feature\Home;
+namespace Tests\Feature\Frontend;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 /**
- * Class FrontendTest
+ * Class HomeTest 
+ * ---- 
+ * PHPUnit testcase for the frontend index route
+ * 
+ * @author      Tim Joosten <tim@activisme.be>
+ * @copyright   2018 Tim Joosten
+ * @package     Tests\Feature\Frontend
  */
-class FrontendTest extends TestCase
+class HomeTest extends TestCase
 {
     /**
      * @test 
