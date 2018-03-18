@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/disclaimer', 'Frontend\PolicyController@disclaimer')->name('policy.disclaimer');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
