@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Relations\AuthorRelation;
 
 /**
  * Class Category 
@@ -15,6 +16,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Category extends Model
 {
+    // AuthorRelation = BelongsToRelation for the creator user data.
+    use AuthorRelation;
+    
     /**
      * Mass-assign fields for the database table. 
      * 
