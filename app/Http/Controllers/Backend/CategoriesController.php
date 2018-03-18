@@ -59,8 +59,6 @@ class CategoriesController extends Controller
     /**
      * Delete a category out of the application. 
      * 
-     * @todo Implement activity logger 
-     * 
      * @param  int $category The unique identifier from the category in the database storage
      * @return RedirectResponse
      */
@@ -69,6 +67,10 @@ class CategoriesController extends Controller
         $category = $this->categoryRepository->findOrFail($category);
 
         if ($category->delete()) {
+            $this->logActivity('categories', $category, trans('activity.category.delete', [
+                'user' => auth()->user(), 'activity' => $category->name
+            ]));
+
             flash(trans('flash.category.delete', ['name' => $category->name]))->success()->important();
         }
 
