@@ -11,11 +11,12 @@
 |
 */
 
+// Authencation routes
 Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/disclaimer', 'Frontend\PolicyController@disclaimer')->name('policy.disclaimer');
+// Home routes 
+Route::get('/', 'Frontend\IndexController@index')->name('frontend.home');
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Policy Routes
+Route::get('/disclaimer', 'Frontend\PolicyController@disclaimer')->name('policy.disclaimer');
