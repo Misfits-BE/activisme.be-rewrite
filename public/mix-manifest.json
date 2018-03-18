@@ -1,6 +1,9 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
+    "/js/auth.js": "/js/auth.js",
     "/css/auth.css": "/css/auth.css",
-    "/js/auth.js": "/js/auth.js"
+    "/css/app.css": "/css/app.css",
+    "/js/app.js": "/js/app.js",
+    "/css/AdminLTE.min.css": "/css/AdminLTE.min.css",
+    "/css/_all-skins.min.css": "/css/_all-skins.min.css",
+    "/js/adminlte.min.js": "/js/adminlte.min.js"
 }
