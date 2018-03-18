@@ -49,10 +49,10 @@
                                 <i class="fa fa-user"></i> {{ auth()->user()->name }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                <a href="{{ route('account.settings', ['type' => 'informatie']) }}" class="dropdown-item">
+                                <a href="" class="dropdown-item">
                                     <i class="fa fa-fw fa-cogs"></i> Instellingen
                                 </a>
-                                <a href="{{ route('bug.index') }}" class="dropdown-item">
+                                <a href="" class="dropdown-item">
                                     <i class="fa fa-fw fa-bug"></i> Meld een probleem
                                 </a>
                                 <div class="dropdown-divider"></div>
