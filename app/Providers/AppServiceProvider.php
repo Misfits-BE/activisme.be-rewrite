@@ -11,18 +11,9 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
-        //
-    }
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
+        // View composers 
+        view()->composer('*', \App\Http\ViewComposers\GlobalComposer::class);
     }
 }

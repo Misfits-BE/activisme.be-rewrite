@@ -42,7 +42,7 @@
                             <li class="user user-menu"> {{-- User Account Menu --}}
                                 <a href="#"> {{-- Menu Toggle Button --}}
                                     <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">  {{-- The user image in the navbar --}}
-                                    <span class="hidden-xs">Alexander Pierce</span> {{-- hidden-xs hides the username on small devices so only the image appears. --}}
+                                    <span class="hidden-xs">{{ $currentUser->name }}</span> {{-- hidden-xs hides the username on small devices so only the image appears. --}}
                                 </a>
                             </li>
         
@@ -68,7 +68,7 @@
                         </div>
                             
                         <div class="pull-left info">
-                            <p>Alexander Pierce</p>
+                            <p>{{ $currentUser->name }}</p>
                             <a href="#"> {{-- Status --}}
                                 <i class="fa fa-circle text-success"></i> Online
                             </a>
