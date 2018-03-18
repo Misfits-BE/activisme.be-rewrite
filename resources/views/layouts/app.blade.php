@@ -17,7 +17,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
-    <link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">   
+    <link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon"> 
+    <script src="https://use.fontawesome.com/b6d5ae3486.js"></script>
 </head>
 <body class="content">
 <div id="app">
@@ -42,11 +43,6 @@
                                 <i class="fa fa-sign-in"></i> Login
                             </a>
                         </li>
-                        {{-- <li class="nav-item"> --}}
-                            {{-- <a href="{{ route('register') }}" class="nav-link @if (Request::is('register*')) active @endif"> --}}
-                                {{-- <i class="fa fa-user-plus"></i> Registreer --}}
-                            {{-- </a> --}}
-                        {{-- </li> --}}
                     @else
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -148,7 +144,7 @@
                         </fieldset>
                         <fieldset class="form-group text-xs-right">
                             <button type="submit" class="btn btn-primary">
-                                <i class="fa fa-send"></i> Verstuur
+                                <i class="fa fa-fw fa-send"></i> Verstuur
                             </button>
                         </fieldset>
                     </form>
