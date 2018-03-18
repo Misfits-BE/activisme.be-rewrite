@@ -79,9 +79,9 @@
                         <li class="header">MENU</li>
         
                         {{-- Optionally, you can add icons to the links --}}
-                        <li class="active">
-                            <a href="#">
-                                <i class="fa fa-link"></i> <span>Link</span>
+                        <li class="">
+                            <a href="{{ route('admin.categories.index') }}">
+                                <i class="fa fa-tags"></i> <span>Categorieen</span>
                             </a>
                         </li>
                         
@@ -113,5 +113,6 @@
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="{{ asset('js/adminlte.min.js') }}"></script>
+        @stack('scripts') {{-- page specific JavaScript stack --}}
     </body>
 </html>

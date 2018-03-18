@@ -24,5 +24,5 @@ class Category extends Model
      * 
      * @var array
      */
-    protected $fillable = ['author_id', 'name', 'slug', 'description'];
+    protected $fillable = ['author_id', 'name', 'description'];
 }

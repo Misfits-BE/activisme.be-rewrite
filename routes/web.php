@@ -20,3 +20,8 @@ Route::get('/home', 'Backend\IndexController@index')->name('home');
 
 // Policy Routes
 Route::get('/disclaimer', 'Frontend\PolicyController@disclaimer')->name('policy.disclaimer');
+
+// Backend category routes 
+Route::get('/admin/categorieen', 'Backend\CategoriesController@index')->name('admin.categories.index');
+Route::get('/admin/categorieen/wijzig/{id}', 'Backend\CategoriesController@edit')->name('admin.categories.edit');
+Route::get('/admin/categorieen/verwijder/{id}', 'Backend\CategoriesController@destroy')->name('admin.categories.delete');

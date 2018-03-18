@@ -24,6 +24,6 @@ trait AuthorRelation
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'author_id')
-            ->withDefault(['name' => 'onbekend']);
+            ->withDefault(['name' => 'Onbekend']);
     }
 }
