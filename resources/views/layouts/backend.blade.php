@@ -76,7 +76,7 @@
                     </div>
 
                     <ul class="sidebar-menu" data-widget="tree"> {{-- Sidebar Menu --}}
-                        <li class="header">MENU</li>
+                        <li class="header">NAVIGATIE</li>
         
                         {{-- Optionally, you can add icons to the links --}}
                         <li class="">
@@ -88,6 +88,12 @@
                         <li class="">
                             <a href="{{ route('admin.activities.index') }}">
                                 <i class="fa fa-fw fa-list"></i> <span>Activiteits log</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="">
+                                <i class="fa fa-fw fa-address-book"></i> Contacten
                             </a>
                         </li>
                         

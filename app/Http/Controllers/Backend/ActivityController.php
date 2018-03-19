@@ -13,7 +13,7 @@ use App\Http\Controllers\Controller;
  * 
  * @author 		Tim Joosten <tim@activisme.be>
  * @copyright	2018 Tim Joosten
- * @package		\App\Http\Controllers\Backend
+ * @package		App\Http\Controllers\Backend
  */
 class ActivityController extends Controller
 {
