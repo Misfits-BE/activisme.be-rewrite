@@ -81,7 +81,13 @@
                         {{-- Optionally, you can add icons to the links --}}
                         <li class="">
                             <a href="{{ route('admin.categories.index') }}">
-                                <i class="fa fa-tags"></i> <span>Categorieen</span>
+                                <i class="fa fa-fw fa-tags"></i> <span>Categorieen</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="{{ route('admin.activities.index') }}">
+                                <i class="fa fa-fw fa-list"></i> <span>Activiteits log</span>
                             </a>
                         </li>
                         

@@ -28,3 +28,6 @@ Route::post('/admin/categorieen/nieuw', 'Backend\CategoriesController@store')->n
 Route::get('/admin/categorieen/wijzig/{id}', 'Backend\CategoriesController@edit')->name('admin.categories.edit');
 Route::patch('/admin/categorieen/wijzig/{id}', 'Backend\CategoriesController@update')->name('admin.categories.update');
 Route::get('/admin/categorieen/verwijder/{id}', 'Backend\CategoriesController@destroy')->name('admin.categories.delete');
+
+// Backend activity log routes
+Route::get('activities', 'Backend\ActivityController@index')->name('admin.activities.index');

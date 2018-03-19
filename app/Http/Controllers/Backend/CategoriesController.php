@@ -72,7 +72,7 @@ class CategoriesController extends Controller
 
         if ($category->update($input->all())) {
             $this->logActivity('categories', $category, trans('activity.category.update', [
-                'user' => auth()->user(), 'activity' => $category->name
+                'user' => auth()->user()->name, 'activity' => $category->name
             ]));
 
             flash(trans('flash.category.update', ['name' => $category->name]))->success();
@@ -103,7 +103,7 @@ class CategoriesController extends Controller
 
         if ($category) {
             $this->logActivity('categories', $category, trans('activity.category.store', [
-                'user' => auth()->user(), 'activity' => $category->name
+                'user' => auth()->user()->name, 'activity' => $category->name
             ]));
 
             flash(trans('flash.category.create', ['name' => $category->name]))->success();
@@ -124,7 +124,7 @@ class CategoriesController extends Controller
 
         if ($category->delete()) {
             $this->logActivity('categories', $category, trans('activity.category.delete', [
-                'user' => auth()->user(), 'activity' => $category->name
+                'user' => auth()->user()->name, 'activity' => $category->name
             ]));
 
             flash(trans('flash.category.delete', ['name' => $category->name]))->success()->important();
