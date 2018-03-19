@@ -26,4 +26,5 @@ Route::get('/admin/categorieen', 'Backend\CategoriesController@index')->name('ad
 Route::get('/admin/categorieen/nieuw', 'Backend\CategoriesController@create')->name('admin.categories.create');
 Route::post('/admin/categorieen/nieuw', 'Backend\CategoriesController@store')->name('admin.categories.store');
 Route::get('/admin/categorieen/wijzig/{id}', 'Backend\CategoriesController@edit')->name('admin.categories.edit');
+Route::patch('/admin/categorieen/wijzig/{id}', 'Backend\CategoriesController@update')->name('admin.categories.update');
 Route::get('/admin/categorieen/verwijder/{id}', 'Backend\CategoriesController@destroy')->name('admin.categories.delete');

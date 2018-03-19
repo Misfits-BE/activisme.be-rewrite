@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\CategoryRepository;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
-use App\Http\Requests\Backend\Categories\StoreValidator;
+use App\Http\Requests\Backend\Categories\{StoreValidator, UpdateValidator};
 
 /**
  * Class CategoriesController 
@@ -47,8 +47,7 @@ class CategoriesController extends Controller
     /**
      * Edit view for some category in the application. 
      * 
-     * @todo Implement phpunit tests
-     * @todo Build up the view
+     *! @todo Build up the view -> IN PROGRESS
      * 
      * @param  int $category The unique identifier from the category in the database storage
      * @return View
@@ -56,6 +55,30 @@ class CategoriesController extends Controller
     public function edit(int $category): View 
     {
         return view('backend.categories.edit', ['category' => $this->categoryRepository->findOrFail($category)]);
+    }
+
+    /**
+     * Update a category in the database storage. 
+     * 
+     * @todo Implement PHPunit tests
+     *
+     * @param  UpdateValidator  $input      The user given input. (Validated)
+     * @param  int              $category   The unique identifier from the category in the database.
+     * @return RedirectResponse
+     */
+    public function update(UpdateValidator $input, int $category): RedirectResponse
+    {
+        $category = $this->categoryRepository->findOrFail($category);
+
+        if ($category->update($input->all())) {
+            $this->logActivity('categories', $category, trans('activity.category.update', [
+                'user' => auth()->user(), 'activity' => $category->name
+            ]));
+
+            flash(trans('flash.category.update', ['name' => $category->name]))->success();
+        }
+
+        return redirect()->route('admin.categories.index');
     }
 
     /**

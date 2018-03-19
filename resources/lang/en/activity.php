@@ -15,6 +15,7 @@ return [
 
     'category' => [
         'store'  => ':user has created the category :activity in the application.',
+        'update' => ':user has updated the category :activity in the application',
         'delete' => ':user has delete the category :activity in the application.'
     ],
 
