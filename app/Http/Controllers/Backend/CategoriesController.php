@@ -48,7 +48,7 @@ class CategoriesController extends Controller
      * Edit view for some category in the application. 
      * 
      * @todo Implement phpunit tests
-     * @todo Build up the view - Now it returns just a 500 internal server error.
+     * @todo Build up the view
      * 
      * @param  int $category The unique identifier from the category in the database storage
      * @return View
