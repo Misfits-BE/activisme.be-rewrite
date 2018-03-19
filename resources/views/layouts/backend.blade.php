@@ -92,7 +92,7 @@
                         </li>
 
                         <li class="">
-                            <a href="">
+                            <a href="{{ route('admin.contacts.index') }}">
                                 <i class="fa fa-fw fa-address-book"></i> <span>Contacten</span>
                             </a>
                         </li>

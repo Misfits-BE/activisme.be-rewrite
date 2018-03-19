@@ -29,5 +29,8 @@ Route::get('/admin/categorieen/wijzig/{id}', 'Backend\CategoriesController@edit'
 Route::patch('/admin/categorieen/wijzig/{id}', 'Backend\CategoriesController@update')->name('admin.categories.update');
 Route::get('/admin/categorieen/verwijder/{id}', 'Backend\CategoriesController@destroy')->name('admin.categories.delete');
 
+// Contact routes 
+Route::get('/admin/contacten', 'Backend\ContactsController@index')->name('admin.contacts.index');
+
 // Backend activity log routes
 Route::get('activities', 'Backend\ActivityController@index')->name('admin.activities.index');

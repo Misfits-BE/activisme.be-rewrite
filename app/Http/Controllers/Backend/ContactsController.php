@@ -33,8 +33,8 @@ class ContactsController extends Controller
     /**
      * Get the index page for the address book in the application. 
      *
-     * @todo Register route
-     * @todo implement phpunit tests
+     * @todo build up the view.
+     *! @todo implement phpunit tests
      *  
      * @return View
      */
