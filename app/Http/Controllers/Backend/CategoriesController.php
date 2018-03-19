@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\CategoryRepository;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\Backend\Categories\StoreValidator;
 
 /**
  * Class CategoriesController 
@@ -47,6 +48,7 @@ class CategoriesController extends Controller
      * Edit view for some category in the application. 
      * 
      * @todo Implement phpunit tests
+     * @todo Build up the view - Now it returns just a 500 internal server error.
      * 
      * @param  int $category The unique identifier from the category in the database storage
      * @return View
@@ -54,6 +56,37 @@ class CategoriesController extends Controller
     public function edit(int $category): View 
     {
         return view('backend.categories.edit', ['category' => $this->categoryRepository->findOrFail($category)]);
+    }
+
+    /**
+     * Create view for a new catgory in the system. 
+     * 
+     * @return View
+     */
+    public function create(): View
+    {
+        return view('backend.categories.create');
+    }
+
+    /**
+     * Create a new category in the database storage. 
+     * 
+     * @param  StoreValidator $input The user given input. (Validated)
+     * @return RedirectResponse
+     */
+    public function store(StoreValidator $input): RedirectResponse 
+    {
+        $category = $this->categoryRepository->create($input->all());
+
+        if ($category) {
+            $this->logActivity('categories', $category, trans('activity.category.store', [
+                'user' => auth()->user(), 'activity' => $category->name
+            ]));
+
+            flash(trans('flash.category.create', ['name' => $category->name]))->success();
+        }
+
+        return redirect()->route('admin.categories.index');
     }
 
     /**

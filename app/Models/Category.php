@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Relations\AuthorRelation;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 /**
  * Class Category 
@@ -16,8 +18,7 @@ use App\Models\Relations\AuthorRelation;
  */
 class Category extends Model
 {
-    // AuthorRelation = BelongsToRelation for the creator user data.
-    use AuthorRelation;
+    use AuthorRelation, HasSlug;
     
     /**
      * Mass-assign fields for the database table. 
@@ -25,4 +26,15 @@ class Category extends Model
      * @var array
      */
     protected $fillable = ['author_id', 'name', 'description'];
+
+    /**
+     * Function for generating slug from the category name.
+     * @return SlugOptions
+     */
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
+    }
 }

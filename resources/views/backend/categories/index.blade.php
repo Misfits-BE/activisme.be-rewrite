@@ -17,6 +17,12 @@
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">@yield('page-title')</h3>
+
+            <div class="pull-right">
+                <a href="{{ route('admin.categories.create') }}" class="btn btn-primary btn-xs">
+                    <i class="fa fa-fw fa-plus"></i> Categorie toevoegen
+                </a>
+          </div>
         </div>
         <div class="box-body">
             @include('flash::message') {{-- Flash session view partial --}}

@@ -14,6 +14,7 @@ return [
      */
 
     'category' => [
+        'create' => 'The category :name has been stored in the application.',
         'delete' => 'The category :name has been deleted in the system.'
     ],
 
