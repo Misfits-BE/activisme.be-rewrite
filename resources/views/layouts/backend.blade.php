@@ -93,7 +93,7 @@
 
                         <li class="">
                             <a href="">
-                                <i class="fa fa-fw fa-address-book"></i> Contacten
+                                <i class="fa fa-fw fa-address-book"></i> <span>Contacten</span>
                             </a>
                         </li>
                         
